@@ -345,19 +345,3 @@ o::before {
     max-width: 850px;
     width: 100%;
 }
-
-@media (max-width: 600px) {
-    .hero {
-        min-height: 400px;
-        padding: 35px 15px;
-    }
-
-    .hero-image {
-        object-fit: cover;
-        object-position: center center;
-    }
-
-    .hero-content {
-        width: 100%;
-    }
-}
