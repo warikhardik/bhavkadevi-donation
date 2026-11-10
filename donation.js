@@ -180,13 +180,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         const params = new URLSearchParams({
-            pa: "spwarik@oksbi",
-            pn: "Shamrao Payaji Warik",
-            am: amount.toFixed(2),
-            cu: "INR",
-            tn: "Bhavkadevi Temple Donation"
-        });
+    pa: "spwarik@oksbi",
+    pn: "Shamrao Payaji Warik",
+    am: Number(amount).toFixed(2),
+    cu: "INR",
+    tn: "Bhavkadevi Temple Suvarna Mahotsav",
+    mc: "",
+    tr: ""
+});
 
-        window.location.href = "upi://pay?" + params.toString();
+window.location.href = "upi://pay?" + params.toString();
     });
 });
