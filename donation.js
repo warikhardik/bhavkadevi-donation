@@ -188,7 +188,12 @@ const params = new URLSearchParams({
     tn: "Bhavkadevi Temple Suvarna Mahotsav"
 });
 
-const upiLink = "upi://pay?" + params.toString();
+const upiLink =
+    "upi://pay?pa=spwarik@oksbi" +
+    "&pn=Shamrao%20Payaji%20Warik" +
+    "&am=" + amount.toFixed(2) +
+    "&cu=INR" +
+    "&tn=Bhavkadevi%20Temple%20Suvarna%20Mahotsav";
 
 console.log("Generated UPI Link:", upiLink);
 
