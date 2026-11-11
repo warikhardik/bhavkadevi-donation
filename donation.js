@@ -179,16 +179,19 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        const params = new URLSearchParams({
+
+const params = new URLSearchParams({
     pa: "spwarik@oksbi",
     pn: "Shamrao Payaji Warik",
-    am: Number(amount).toFixed(2),
+    am: amount.toFixed(2),
     cu: "INR",
-    tn: "Bhavkadevi Temple Suvarna Mahotsav",
-    mc: "",
-    tr: ""
+    tn: "Bhavkadevi Temple Suvarna Mahotsav"
 });
 
-window.location.href = "upi://pay?" + params.toString();
+const upiLink = "upi://pay?" + params.toString();
+
+console.log("Generated UPI Link:", upiLink);
+
+window.location.href = upiLink;
     });
 });
