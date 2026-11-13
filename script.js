@@ -177,3 +177,39 @@ if (problemReportForm) {
     });
 
 }
+
+
+// ==========================================
+// WEBSITE SCROLL REVEAL ANIMATION
+// ==========================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const revealElements = document.querySelectorAll(
+        ".section h2, .about p, .about h3, .event-card, .purpose-card, .donate-box, .contact-box, .developer-info, .problem-report-box"
+    );
+
+    revealElements.forEach(element => {
+        element.classList.add("reveal");
+    });
+
+    const observer = new IntersectionObserver((entries, observer) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
+
+        });
+
+    }, {
+        threshold: 0.15
+    });
+
+    revealElements.forEach(element => {
+        observer.observe(element);
+    });
+
+});
