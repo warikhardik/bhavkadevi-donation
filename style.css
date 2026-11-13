@@ -804,3 +804,21 @@ footer {
         flex: none;
     }
 }
+
+
+/* Mobile animation compatibility */
+
+@media (max-width: 768px) {
+
+    .reveal {
+        transform: translateY(15px);
+        transition: opacity 0.6s ease,
+                    transform 0.6s ease;
+    }
+
+    .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
