@@ -694,3 +694,113 @@ footer {
         width: 190px;
     }
 }
+
+
+/* =================================
+   CELEBRATION SCHEDULE CARDS
+================================= */
+
+.event-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 25px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+.event-card {
+    display: block;
+    flex: 1 1 260px;
+    max-width: 320px;
+    box-sizing: border-box;
+    background: #fffaf0;
+    border: 1px solid #edc36a;
+    border-radius: 14px;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.13);
+}
+
+.event-card h3 {
+    color: #8b4513;
+    margin-bottom: 12px;
+}
+
+.event-card p {
+    color: #55402c;
+    line-height: 1.6;
+}
+
+.event-card.highlight {
+    background: #fff0cf;
+    border: 2px solid #d99b28;
+}
+
+
+/* =================================
+   PURPOSE OF DONATIONS CARDS
+================================= */
+
+.purpose-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 25px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+.purpose-card {
+    display: flex;
+    flex: 1 1 260px;
+    max-width: 320px;
+    min-height: 100px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    background: #fffaf0;
+    border: 1px solid #edc36a;
+    border-radius: 14px;
+    padding: 25px 20px;
+    text-align: center;
+    color: #79351f;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.purpose-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.13);
+}
+
+
+/* =================================
+   MOBILE RESPONSIVENESS
+================================= */
+
+@media (max-width: 768px) {
+    .event-container,
+    .purpose-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .event-card,
+    .purpose-card {
+        width: 100%;
+        max-width: 350px;
+        flex: none;
+    }
+}
