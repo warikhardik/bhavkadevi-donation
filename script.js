@@ -181,27 +181,8 @@ if (problemReportForm) {
 
 // ==========================================
 // WEBSITE SCROLL REVEAL ANIMATION
+// MOBILE + DESKTOP + STAGGERED CARDS
 // ==========================================
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const revealElements = document.querySelectorAll(
-        ".section h2, .about p, .about h3, .event-card, .purpose-card, .donate-box, .contact-box, .developer-info, .problem-report-box"
-    );
-
-    revealElements.forEach(element => {
-        element.classList.add("reveal");
-    });
-
-    const observer = new IntersectionObserver((entries, observer) => {
-
-        entries.forEach(entry => {
-
-
-
-/* ==========================================
-   MOBILE + DESKTOP SCROLL REVEAL
-========================================== */
 
 (function () {
 
@@ -211,14 +192,35 @@ document.addEventListener("DOMContentLoaded", function () {
             ".section h2, .about p, .about h3, .event-card, .purpose-card, .donate-box, .contact-box, .developer-info, .problem-report-box"
         );
 
-        // Prevent elements from remaining hidden on unsupported browsers
+        // Show everything if IntersectionObserver is unsupported
         if (!("IntersectionObserver" in window)) {
-            elements.forEach(el => el.classList.add("visible"));
+            elements.forEach(element => {
+                element.classList.add("visible");
+            });
             return;
         }
 
-        elements.forEach(el => el.classList.add("reveal"));
+        // Add reveal class
+        elements.forEach(element => {
+            element.classList.add("reveal");
+        });
 
+        // Stagger cards within each group
+        const cardGroups = [
+            ".event-card",
+            ".purpose-card",
+            ".contact-box"
+        ];
+
+        cardGroups.forEach(selector => {
+
+            document.querySelectorAll(selector).forEach((card, index) => {
+                card.style.transitionDelay = (index * 0.15) + "s";
+            });
+
+        });
+
+        // Observe elements while scrolling
         const observer = new IntersectionObserver(function (entries) {
 
             entries.forEach(entry => {
@@ -235,7 +237,10 @@ document.addEventListener("DOMContentLoaded", function () {
             rootMargin: "0px 0px 50px 0px"
         });
 
-        elements.forEach(el => observer.observe(el));
+        elements.forEach(element => {
+            observer.observe(element);
+        });
+
     }
 
     if (document.readyState === "loading") {
@@ -245,4 +250,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 })();
-
