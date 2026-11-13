@@ -143,13 +143,26 @@ nav a:hover {
 
 .event-card,
 .purpose-card,
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 25px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
 .contact-box {
     background: white;
     border: 1px solid #edc36a;
     padding: 25px;
     border-radius: 12px;
     width: 280px;
+    flex: 1;
     box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    text-align: center;
 }
 
 .event-card h3 {
@@ -344,4 +357,18 @@ o::before {
     z-index: 2;
     max-width: 850px;
     width: 100%;
+}
+
+
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-box {
+        width: 100%;
+        max-width: 350px;
+        box-sizing: border-box;
+    }
 }
