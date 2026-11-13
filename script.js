@@ -197,15 +197,53 @@ document.addEventListener("DOMContentLoaded", function () {
 
         entries.forEach(entry => {
 
+
+// ==========================================
+// SCROLL REVEAL + STAGGERED CARD ANIMATION
+// ==========================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const revealElements = document.querySelectorAll(
+        ".section h2, .about p, .about h3, .event-card, .purpose-card, .donate-box, .contact-box, .developer-info, .problem-report-box"
+    );
+
+    // Add reveal class and stagger delay
+    revealElements.forEach((element, index) => {
+
+        element.classList.add("reveal");
+
+        if (
+            element.classList.contains("event-card") ||
+            element.classList.contains("purpose-card") ||
+            element.classList.contains("contact-box")
+        ) {
+            const cards = Array.from(element.parentElement.children);
+            const cardIndex = cards.indexOf(element);
+
+            element.style.transitionDelay = (cardIndex * 0.18) + "s";
+        }
+
+    });
+
+    // Observe elements when they enter the screen
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
             if (entry.isIntersecting) {
+
                 entry.target.classList.add("visible");
+
                 observer.unobserve(entry.target);
+
             }
 
         });
 
     }, {
-        threshold: 0.15
+        threshold: 0.10,
+        rootMargin: "0px 0px -30px 0px"
     });
 
     revealElements.forEach(element => {
