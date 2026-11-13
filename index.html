@@ -329,7 +329,84 @@
 
 </section>
 
-    
+
+<!-- WEBSITE PROBLEM REPORT SECTION -->
+<section class="problem-report section" id="problem-report">
+
+    <h2 data-en="Website Developer & Technical Support"
+        data-mr="वेबसाइट विकसक आणि तांत्रिक सहाय्य">
+        Website Developer & Technical Support
+    </h2>
+
+    <div class="developer-info">
+        <h3 data-en="Hardik Shamrao Warik"
+            data-mr="हार्दिक शामराव वारीक">
+            Hardik Shamrao Warik
+        </h3>
+
+        <p>
+            📞 <a href="tel:+919930731402">+91 9930731402</a>
+        </p>
+
+        <p>
+            ✉️ <a href="mailto:warikhardik@gmail.com">
+                warikhardik@gmail.com
+            </a>
+        </p>
+    </div>
+
+    <div class="problem-report-box">
+
+        <h3 data-en="Report a Website Problem"
+            data-mr="वेबसाइटवरील समस्येची तक्रार नोंदवा">
+            Report a Website Problem
+        </h3>
+
+        <p data-en="Found a problem? Please describe it below."
+           data-mr="वेबसाइटवर काही समस्या आढळली आहे का? कृपया खाली तिचे वर्णन करा.">
+            Found a problem? Please describe it below.
+        </p>
+
+        <form id="problemReportForm">
+
+            <input type="text" name="name"
+                data-placeholder-en="Your Name"
+                data-placeholder-mr="आपले नाव"
+                placeholder="Your Name" required>
+
+            <input type="tel" name="phone"
+                data-placeholder-en="Your Mobile Number"
+                data-placeholder-mr="आपला मोबाईल क्रमांक"
+                placeholder="Your Mobile Number"
+                maxlength="10" required>
+
+            <textarea name="description"
+                data-placeholder-en="Describe the problem you faced..."
+                data-placeholder-mr="आपल्याला आलेल्या समस्येचे वर्णन करा..."
+                placeholder="Describe the problem you faced..."
+                minlength="10" maxlength="2000"
+                rows="5" required></textarea>
+
+            <!-- Spam protection field -->
+            <input type="text" name="website"
+                style="display:none"
+                tabindex="-1" autocomplete="off">
+
+            <button type="submit"
+                data-en="Submit Report"
+                data-mr="तक्रार पाठवा">
+                Submit Report
+            </button>
+
+            <p id="problemReportMessage" aria-live="polite"></p>
+
+        </form>
+
+    </div>
+
+</section>
+
+
 <footer>
 
     <h3>भावकादेवी मंदिर - सुवर्ण महोत्सव</h3>
