@@ -220,33 +220,20 @@ if (problemReportForm) {
 
         });
 
-        // Observe elements while scrolling
-        const observer = new IntersectionObserver(function (entries) {
+       // Observe elements while scrolling
+const observer = new IntersectionObserver(function (entries) {
 
-            entries.forEach(entry => {
+    entries.forEach(entry => {
 
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
-                    observer.unobserve(entry.target);
-                }
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+        }
 
-            });
+    });
 
-        }, {
-            threshold: 0,
-            rootMargin: "0px 0px 50px 0px"
-        });
-
-        elements.forEach(element => {
-            observer.observe(element);
-        });
-
-    }
-
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", initializeRevealAnimation);
-    } else {
-        initializeRevealAnimation();
-    }
-
-})();
+}, {
+    root: null,
+    threshold: 0.01,
+    rootMargin: "0px 0px 100px 0px"
+});
