@@ -237,3 +237,18 @@ const observer = new IntersectionObserver(function (entries) {
     threshold: 0.01,
     rootMargin: "0px 0px 100px 0px"
 });
+
+        // Start observing all elements
+        elements.forEach(element => {
+            observer.observe(element);
+        });
+
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initializeRevealAnimation);
+    } else {
+        initializeRevealAnimation();
+    }
+
+})();
