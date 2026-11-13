@@ -198,46 +198,28 @@ document.addEventListener("DOMContentLoaded", function () {
         entries.forEach(entry => {
 
 
+
 /* ==========================================
-   SCROLL REVEAL + STAGGERED ANIMATION
-   Desktop + Mobile
+   MOBILE + DESKTOP SCROLL REVEAL
 ========================================== */
 
-document.addEventListener("DOMContentLoaded", function () {
+(function () {
 
-    const revealElements = document.querySelectorAll(
-        ".section h2, .about p, .about h3, .event-card, .purpose-card, .donate-box, .contact-box, .developer-info, .problem-report-box"
-    );
+    function initializeRevealAnimation() {
 
-    revealElements.forEach(element => {
+        const elements = document.querySelectorAll(
+            ".section h2, .about p, .about h3, .event-card, .purpose-card, .donate-box, .contact-box, .developer-info, .problem-report-box"
+        );
 
-        element.classList.add("reveal");
-
-        if (
-            element.classList.contains("event-card") ||
-            element.classList.contains("purpose-card") ||
-            element.classList.contains("contact-box")
-        ) {
-            const cardIndex = Array.from(
-                element.parentElement.children
-            ).indexOf(element);
-
-            element.style.transitionDelay =
-                (cardIndex * 0.15) + "s";
+        // Prevent elements from remaining hidden on unsupported browsers
+        if (!("IntersectionObserver" in window)) {
+            elements.forEach(el => el.classList.add("visible"));
+            return;
         }
 
-    });
+        elements.forEach(el => el.classList.add("reveal"));
 
-    // Fallback if IntersectionObserver is unavailable
-    if (!("IntersectionObserver" in window)) {
-        revealElements.forEach(element => {
-            element.classList.add("visible");
-        });
-        return;
-    }
-
-    const observer = new IntersectionObserver(
-        function (entries) {
+        const observer = new IntersectionObserver(function (entries) {
 
             entries.forEach(entry => {
 
@@ -248,16 +230,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
             });
 
-        },
-        {
+        }, {
             threshold: 0,
-            rootMargin: "0px 0px 0px 0px"
-        }
-    );
+            rootMargin: "0px 0px 50px 0px"
+        });
 
-    revealElements.forEach(element => {
-        observer.observe(element);
-    });
+        elements.forEach(el => observer.observe(el));
+    }
 
-});
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initializeRevealAnimation);
+    } else {
+        initializeRevealAnimation();
+    }
+
+})();
 
